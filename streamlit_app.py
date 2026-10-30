@@ -1,18 +1,18 @@
+
 # INSTRUCTIONS:
 # 1. Open a "Terminal" by: View --> Terminal OR just the "Terminal" through the hamburger menu
 # 2. run in terminal with: streamlit run streamlit_app.py
 # 3. click the "Open in Browser" link that pops up OR click on "Ports" and copy the URL
-# 4. Open a Simple Browswer with View --> Command Palette --> Simple Browser: Show
-# 5. use the URL from prior steps as intput into this simple browser
-
+# 4. Open a Simple Browser with View --> Command Palette --> Simple Browser: Show
+# 5. use the URL from prior steps as input into this simple browser
 
 import streamlit as st
 import altair as alt
- 
-st.title('My First Streamlit App')
 
-st.text("The URL for this app is: https://jnaiman-is445-demo.streamlit.app/")
-st.text("The URL for its GitHub repo is: https://github.com/jnaiman/is445_streamlit_demo")
+st.title('Streamlit App for IS445: ID47410')
+
+st.text("The URL for this app is: https://yashna-is445-demo.streamlit.app/")
+st.text("The URL for its GitHub repo is: https://github.com/yashnayadav12/is445_demo")
 
 source = "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/seattle-weather.csv"
 
@@ -33,7 +33,7 @@ points = (
     alt.Chart()
     .mark_point()
     .encode(
-        alt.X("monthdate(date):T", title="Date"),
+        alt.X("monthdate(date):T", title="Date (Month Year)"),
         alt.Y(
             "temp_max:Q",
             title="Maximum Daily Temperature (C)",
@@ -63,7 +63,7 @@ bars = (
     .add_params(click)
 )
 
-chart = alt.vconcat(points, bars, data=source, title="Seattle Weather: 2012-2015")
+chart = alt.vconcat(points, bars, data=source, title="Seattle Weather - 2006 to 2014")
 
 tab1, tab2 = st.tabs(["Streamlit theme (default)", "Altair native theme"])
 
